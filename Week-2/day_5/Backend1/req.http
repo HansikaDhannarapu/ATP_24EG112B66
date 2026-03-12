@@ -1,0 +1,72 @@
+### Read all  users
+GET http://localhost:1003/user-api/users
+
+### Read a user by id
+GET http://localhost:1003/user-api/users/2
+
+
+### Create new user
+POST http://localhost:1003/user-api/users
+Content-Type: application/json
+
+{
+    "id":2,
+    "name":"aishu",
+    "age":24
+}
+
+### Updates a User (Id should be same so that we can update the existing data)
+PUT http://localhost:1003/user-api/users
+Content-Type: application/json
+
+{
+    "id":2,
+    "name":"aishu",
+    "age":23
+}
+
+
+
+###Deletes a user by id
+DELETE http://localhost:1003/user-api/users/2
+## in the above line 10 is an argument
+
+### Read all products
+
+GET http://localhost:1003/product-api/products
+
+
+### Read a product by brand
+GET http://localhost:1003/product-api/products/Lenovo
+
+
+
+### Create new product
+POST http://localhost:1003/product-api/products
+Content-Type: application/json
+
+{
+    "productId":1,
+    "name":"Laptop",
+    "brand":"hp",
+    "price":50000
+}
+
+### Updates a User (Id should be same so that we can update the existing data)
+PUT http://localhost:1003/product-api/products
+Content-Type: application/json
+
+{
+    "productId":1,
+    "name":"Laptop",
+    "brand":"HP",
+    "price":50000
+
+}
+
+###Deletes a product by id
+DELETE http://localhost:1003/product-api/products/1
+
+
+
+

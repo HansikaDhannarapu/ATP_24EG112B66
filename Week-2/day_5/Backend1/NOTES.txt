@@ -1,0 +1,22 @@
+**IMP**
+### steps to create backend
+1.Generate package.json file
+ npm init -y //open terminal in a empty folder and type the command
+2. create HTTP Server
+ //open the package.json file and change the descripition as a simple backend application,main as server,type as module
+ -install express module 
+    npm install express // open the terminal and run the command so u will install express (node_modules and package-lock will be enabled)
+ -import express module // open a new file in that folder and import express module 
+                        // create a variable to hold the express application 
+                        //assign a port value
+                        //refer server.js
+
+
+
+NOTES
+05/03/2026
+
+REST API Representational state transfer
+// Here without using  db also we can continue the application but it is not permanent
+so for permanent data storage we use db
+bcoz if we send request and create some users , we can se it till we close that,but for permanent storing we use db so that the entered data will not be dissappeared

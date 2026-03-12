@@ -1,0 +1,99 @@
+### 
+### all these requests are stored in cookieJar
+//200 --success
+//201 --created
+//400 --bad request(when client sents invalid data)
+//401 --unauthorised
+//404 --Not found
+//500 --Server error
+
+### Read all  users (req to protected route)
+GET http://localhost:4000/user-api/users
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbmV5QGdtYWlsLmNvbSIsImlhdCI6MTc3Mjg3ODExMSwiZXhwIjoxNzcyODc4MjExfQ.SoYQArdS3nlwMI0Rxx0CraFaTb8jExawp52MZ6EpU8w; Path=/; HttpOnly; SameSite=Lax
+
+// Here the this route is not perfect as it has no security, as any user can see the data only with objectId 
+### Read a user by id
+GET http://localhost:4000/user-api/user
+
+
+### Create new user
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "username":"honey",
+    "password":"honey",
+    "email":"honey@gmail.com",
+    "age":19
+}
+
+### Updates a User (Id should be same so that we can update the existing data)
+PUT http://localhost:4000/user-api/users/69aa8b43a4eb1317be4e1d42
+Content-Type: application/json
+
+{
+    "username":"honeyyy",
+    "password":"honey10",
+    "email":"honey@gmail.com",
+    "age":19
+
+    
+}
+
+###user login
+Post http://localhost:4000/user-api/auth
+Content-Type: application/json
+
+{
+    "email":"honey@gmail.com",
+    "password":"honey"
+}
+
+
+###Deletes a user by id
+DELETE http://localhost:4000/user-api/users/69aa6e22ae4bb284cae25bcd
+## in the above line 10 is an argument
+
+### Add product to user cart //we have to send only product id as however it will be added to logged in user
+PUT http://localhost:4000/user-api/cart/product-id/69b2537b3560dbcce4992368
+
+
+
+### Read all products
+GET http://localhost:4000/product-api/products
+
+
+### Read a product by productId
+GET http://localhost:4000/product-api/products/1
+
+
+
+### Create new product
+POST http://localhost:4000/product-api/products
+Content-Type: application/json
+
+{
+    "productId":3,
+    "productName":"phone",
+    "price":33000,
+    "brand":"mottorola"
+}
+
+
+### Updates a User (Id should be same so that we can update the existing data)
+PUT http://localhost:4000/product-api/products/1
+Content-Type: application/json
+
+{  
+    "productId":1,
+    "productName":"Laptop",
+    "price":50000,
+    "brand":"lenovo"
+}
+
+###Deletes a product by id
+DELETE http://localhost:4000/product-api/products/1
+
+
+
+
