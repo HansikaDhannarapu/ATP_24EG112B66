@@ -8,7 +8,7 @@ export function verifyToken(req,res,next){
    }
    try{
     //if token is existed
-   const decodedToken=verify(token,'abcdef')
+   const decodedToken=verify(token,process.env.SECRET_KEY)
    console.log(decodedToken)
    //attach 
    req.user=decodedToken
