@@ -14,8 +14,8 @@ function Counter(){
     return(
         <div className="text-center p-10 border">
             <h1 className="text-6xl">Count:{counnt}</h1>
-            <button className="bg-green-500 text-white px-4 py-2 m-2" onClick={increment}>increment</button>
-            <button className="bg-red-500 text-white px-4 py-2 m-2" onClick={decrement}>decrement</button>
+            <button className="bg-green-500 text-white px-4 py-2 m-2" onClick={increment}>+</button>
+            <button className="bg-red-500 text-white px-4 py-2 m-2" onClick={decrement}>-</button>
         </div>
     )
 }
