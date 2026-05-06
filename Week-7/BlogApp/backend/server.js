@@ -28,6 +28,7 @@ app.get("/test-route", (req, res) => {
 app.use("/user", userApp)
 app.use("/author", authorApp)
 app.use("/admin", adminApp)
+console.log("COMMON APP:", commonApp);
 app.use("/auth", commonApp)
 
 const connectDB = async () => {
