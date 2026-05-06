@@ -5,6 +5,7 @@ import { userApp } from './APIs/UserAPI.js'
 import { authorApp } from './APIs/AuthorAPI.js'
 import { adminApp } from './APIs/AdminAPI.js'
 import { commonApp } from './APIs/commonAPI.js'
+console.log("COMMON APP:", commonApp);
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 config()
@@ -28,7 +29,6 @@ app.get("/test-route", (req, res) => {
 app.use("/user", userApp)
 app.use("/author", authorApp)
 app.use("/admin", adminApp)
-console.log("COMMON APP:", commonApp);
 app.use("/auth", commonApp)
 
 const connectDB = async () => {
