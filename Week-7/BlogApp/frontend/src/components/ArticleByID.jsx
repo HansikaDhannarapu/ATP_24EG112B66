@@ -80,7 +80,7 @@ function ArticleByID() {
 
     try {
       const res = await axios.patch(
-        "https://atp-24eg112b66.onrender.com/author-api/articles",
+        "https://atp-24eg112b66.onrender.com/author/articles",
         { articleId: article._id, isArticleActive: newStatus },
         { withCredentials: true },
       );
