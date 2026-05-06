@@ -21,6 +21,10 @@ app.use(cors({
   credentials:true
 }))
 
+app.get("/test-route", (req, res) => {
+  res.send("NEW CODE IS RUNNING");
+});
+
 app.use("/user", userApp)
 app.use("/author", authorApp)
 app.use("/admin", adminApp)
