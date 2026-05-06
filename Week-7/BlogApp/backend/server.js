@@ -17,7 +17,7 @@ app.use(cookieParser())
 app.use(exp.json())
 
 app.use(cors({
-  origin:['atp-24-eg-112-b66.vercel.app'],
+  origin:['http://localhost:5137','https://atp-24-eg-112-b66.vercel.app'],
   credentials:true
 }))
 
