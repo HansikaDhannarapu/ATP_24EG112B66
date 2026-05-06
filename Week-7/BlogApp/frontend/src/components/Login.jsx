@@ -1,4 +1,3 @@
-import { useForm } from "react-hook-form";
 import {
   pageBackground,
   formCard,
@@ -10,13 +9,14 @@ import {
   errorClass,
   mutedText,
   linkClass,
-  loadingClass,
 } from "../styles/common";
+import { useEffect, useRef } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router";
+import { useForm } from "react-hook-form";
 import { useAuth } from "../store/authStore";
-import { useEffect } from "react";
-import {toast} from 'react-hot-toast'
+import { toast } from "react-hot-toast";
 
+ 
 function Login() {
   const {
     register,
@@ -25,38 +25,37 @@ function Login() {
   } = useForm();
 
   const navigate = useNavigate();
-  //get state from auth store
-  const { login, currentUser, loading, error, isAuthenticated } = useAuth((state) => state);
-  //on user login
-  const onUserLogin = (userCredObj) => {
-    //call login() of auth store
-    login(userCredObj);
-  };
+  const { login, currentUser, loading, isAuthenticated, error } = useAuth((state) => state);
 
-  useEffect(() => {
-    //navigation logic
-    if (isAuthenticated === true) {
+  const onUserLogin = (userCredObj) => {
+    login(userCredObj)
+  };
+   console.log("current user",currentUser) 
+   
+  
+   const hasToasted = useRef(false);
+
+   useEffect(() => {
+    if (isAuthenticated === true && !hasToasted.current) {
+      hasToasted.current = true;
       if (currentUser.role === "USER") {
-        //show cuccess toast
-        toast.success("Login success and redirecting to User Profile",{duration:2000})
+        toast.success("Login successfull redirecting to user profile", { duration: 2000 });
         navigate("/user-profile");
       }
-      if (currentUser.role === "AUTHOR") {
-         toast.success("Login success and redirecting to Author Profile",{duration:2000})
+      else if (currentUser.role === "AUTHOR") {
+        toast.success("Login successfull redirecting to author profile", { duration: 2000 });
         navigate("/author-profile");
       }
-      if (currentUser.role === "ADMIN") {
-         toast.success("Login success and redirecting to Admin Profile",{duration:2000})
+      else if (currentUser.role === "ADMIN") {
+        toast.success("Login successfull redirecting to admin profile", { duration: 2000 });
         navigate("/admin-profile");
       }
     }
-  }, [isAuthenticated]);
+   }, [currentUser, isAuthenticated, navigate]);
 
-  //deal with loading
-  if (loading) {
-    return <p className={loadingClass}>Loading....</p>;
-  }
-
+   if(loading){
+    return <p className="loadingclass">loading...</p>
+   }
   return (
     <div className={`${pageBackground} flex items-center justify-center py-16 px-4`}>
       <div className={formCard}>
