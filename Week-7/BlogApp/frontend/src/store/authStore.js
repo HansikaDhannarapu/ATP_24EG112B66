@@ -12,7 +12,7 @@ export const useAuth = create((set) => ({
       //set loading true
       set({ loading: true, currentUser: null, isAuthenticated: false, error: null });
       //make api call
-      let res = await axios.post("atp-24-eg-112-b66.vercel.app/auth/login", userCred, { withCredentials: true });
+      let res = await axios.post("https://atp-24eg112b66.onrender.com/auth/login", userCred, { withCredentials: true });
       //update state
       if (res.status === 200) {
         set({
@@ -37,7 +37,8 @@ export const useAuth = create((set) => ({
     try {
       //set loading state
       //make logout api req
-      let res = await axios.get("atp-24-eg-112-b66.vercel.app/auth/logout", { withCredentials: true });
+      let res = await axios.get("https://atp-24eg112b66.onrender.com/auth/logout",
+ { withCredentials: true });
       //update state
       if (res.status === 200) {
         set({
@@ -60,7 +61,8 @@ export const useAuth = create((set) => ({
   checkAuth: async () => {
     try {
       set({ loading: true });
-      const res = await axios.get("atp-24-eg-112-b66.vercel.app/check-auth", { withCredentials: true });
+      const res = await axios.get("https://atp-24eg112b66.onrender.com/auth/check-auth",
+ { withCredentials: true });
 
       set({
         currentUser: res.data.payload,
