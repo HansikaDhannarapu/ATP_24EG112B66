@@ -18,9 +18,15 @@ app.use(cookieParser())
 app.use(exp.json())
 
 app.use(cors({
-  origin:['http://localhost:5137','https://atp-24-eg-112-b66.vercel.app'],
-  credentials:true
-}))
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5137",
+    "https://atp-24-eg-112-b66.vercel.app",
+    "https://atp-24-eg-112-b66-c0retk5gk-hansikadhannarapus-projects.vercel.app"
+  ],
+  credentials: true
+}));
+
 
 app.get("/test-route", (req, res) => {
   res.send("NEW CODE IS RUNNING");
