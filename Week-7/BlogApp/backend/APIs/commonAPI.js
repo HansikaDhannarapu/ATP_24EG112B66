@@ -16,11 +16,7 @@ let allowedRoles = ["USER", "AUTHOR"]
 commonApp.post("/users", upload.single("profileImageUrl"), async (req, res) => {
     //get user from req
     const newUser = req.body
-
-    // add profileImageUrl if file is uploaded
-    if (req.file) {
-        newUser.profileImageUrl = req.file.path;
-    }
+    
     //check role
     if (!newUser.role || !allowedRoles.includes(newUser.role.toUpperCase())) {
         return res.status(400).json({ message: "Invalid role" })
