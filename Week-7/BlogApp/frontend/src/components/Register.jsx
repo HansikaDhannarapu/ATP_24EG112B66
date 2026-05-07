@@ -182,12 +182,12 @@ function Register() {
             <input
               type="file"
               className={inputClass}
-              accept="image/png, image/jpeg"
+              accept="image/png, image/jpeg, image/jpg"
               {...register("profileImageUrl", {
                 validate: {
                   fileType: (files) => {
                     if (!files?.[0]) return true;
-                    return ["image/png", "image/jpeg"].includes(files[0].type) || "Only JPG/PNG allowed";
+                    return ["image/png", "image/jpeg", "image/jpg"].includes(files[0].type) || "Only JPG/PNG allowed";
                   },
                   fileSize: (files) => {
                     if (!files?.[0]) return true;
