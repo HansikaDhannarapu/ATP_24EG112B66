@@ -1,5 +1,5 @@
 ### Create emp
-POST http://localhost:4000/emp-api/employees
+POST https://atp-24eg112b66-1.onrender.com/emp-api/employees
 Content-Type: application/json
 
 {
@@ -11,10 +11,10 @@ Content-Type: application/json
 }
 
 ### Read all emps
-GET http://localhost:4000/emp-api/employees
+GET https://atp-24eg112b66-1.onrender.com/emp-api/employees
 
 ### Update emp by id
-PUT http://localhost:4000/emp-api/employees/69ca2914876d014c00a49b6e
+PUT https://atp-24eg112b66-1.onrender.com/emp-api/employees/69ca2914876d014c00a49b6e
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 }
 
 ### Delete emp by id
-DELETE http://localhost:4000/emp-api/employees/69ca2914876d014c00a49b6en
+DELETE https://atp-24eg112b66-1.onrender.com/emp-api/employees/69ca2914876d014c00a49b6en

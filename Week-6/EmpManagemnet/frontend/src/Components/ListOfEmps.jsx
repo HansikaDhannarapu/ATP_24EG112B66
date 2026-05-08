@@ -24,7 +24,7 @@ function ListOfEmps() {
   }
   
   const deleteEmpById=async(id)=>{
-    let res=await axios.delete(`http://localhost:4000/emp-api/employees/${id}`)
+    let res=await axios.delete(`https://atp-24eg112b66-1.onrender.com/emp-api/employees/${id}`)
   if(res.status===200){
      //get latest emps data
      getEmps()
@@ -32,7 +32,7 @@ function ListOfEmps() {
   }
   //get all employees
     async function getEmps() {
-      let res = await fetch("http://localhost:4000/emp-api/employees");
+      let res = await fetch("https://atp-24eg112b66-1.onrender.com/emp-api/employees");
       if (res.status === 200) {
         let resObj = await res.json();
         setEmps(resObj.payload);
