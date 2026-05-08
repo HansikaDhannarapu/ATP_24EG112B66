@@ -48,7 +48,7 @@ function Register() {
       //start loading
       setLoading(true);
       //make HTTP POST req to create User in backend
-      let res = await axios.post("http://localhost:4000/auth/users", formData,{withCredentials:true});
+      let res = await axios.post("https://atp-24eg112b66.onrender.com/auth/users", formData,{withCredentials:true});
 
       if (res.status === 201) {
         //navigate to Login
@@ -56,7 +56,7 @@ function Register() {
       }
     } catch (err) {
       console.log("err in registration", err);
-      setApiError(err.response?.data?.error || "Registration failed");
+      setApiError(err.response?.data?.error ||err.response?.data?.message || "Registration failed");
     } finally {
       setLoading(false);
     }
@@ -182,12 +182,12 @@ function Register() {
             <input
               type="file"
               className={inputClass}
-              accept="image/png, image/jpeg"
+              accept="image/png, image/jpeg, image/jpg"
               {...register("profileImageUrl", {
                 validate: {
                   fileType: (files) => {
                     if (!files?.[0]) return true;
-                    return ["image/png", "image/jpeg"].includes(files[0].type) || "Only JPG/PNG allowed";
+                    return ["image/png", "image/jpeg", "image/jpg"].includes(files[0].type) || "Only JPG/PNG allowed";
                   },
                   fileSize: (files) => {
                     if (!files?.[0]) return true;

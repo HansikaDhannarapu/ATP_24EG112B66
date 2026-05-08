@@ -1,64 +1,193 @@
-### Steps to create backend with DB
+# MERN Stack Course – Week 3
 
-1.Generate package.json
-2.create express server
-3.install mongoose and connect to mongoDB server 
-       REST API- mongoDB native driver->DB server
-       REST API-mongoose ODM (object ) tool ->DB server
- (// fetch can read,add,update,and delete data)
- (assynchronous op returns promise)
- 4.build USER REST API  //resourse for this user api is user
-             -Create user
-             -read all users
-             -read a user by id
-             -update a user by id
-             -delete a user by id
+## Topics Covered
 
-      [the above all are called as crud operations]
+### Day 6 Topics
 
-5.Create Schema and Model of the Resourse(USER)
-      -The structure of the document should be there, for that we need to create schemaa
-      -On this schema we need to develop a model
+* Middlewares
+* Built-in & Custom Middlewares
+* App-level & Route-level Middleware
+* Multiple APIs
+* Introduction to MongoDB
+* MongoDB CRUD Operations
 
-6.create USER API and,define the routes
+### Day 7 Topics
 
+* Connecting REST API with MongoDB Database
+* MongoDB Native Driver vs Mongoose ODM
+* Creating Schema & Model
+* Schema Validations and Indexing
+* USER REST API Implementation
+* Hashing Password
+* Error Handling Middleware
+* Handling Unavailable Resources
+* Running Validators During Update Operations
 
-### Steps to follow to refine the routes
+---
 
-->Handling Unavailaiable resources :
-  (if user not found also we get success , to resolve this we use Hand.. Un.. Res..) (user api)
+# Assignments Structure
 
+## Backend with MongoDB Integration
 
-->Validators during update :
-    (Validator rules will be followed only while creating(put) but not during the update(post), so to resovle this we use "runValidators:true") (user api)
+### Express Server with MongoDB Connection
 
+Created an Express.js backend server and connected it with MongoDB using Mongoose ODM.
 
-->Hashing password :
-   (hashing is prefferable over cryptography) (bcryptjs is the module avaliable in js) (user api)
+Implemented:
 
+* Environment configuration using `.env`
+* Database connection setup
+* Express middleware configuration
+* API routing structure
 
-->Unique fields :
-    (if we create a obj which is already created, it will create without giving an error.so to s=resolve this we use unique fields)  (here we create atleast a single unique field zst same as id in dbs) (User model)
+---
 
+## User REST API Implementation
 
-->Refined version of error handling middleware :
-    (here this middleware takecare of server side errors also) (so we need the refined version)  (server-middleware)
+Developed complete CRUD operations for users:
 
+* Create User
+* Read All Users
+* Read Logged-in User
+* Update User
+* Delete User
 
+Integrated MongoDB collections using Mongoose models and schemas.
 
+---
 
-### User Authentication (Login)
-  -- (submit credentials and get token)
+## Product REST API Implementation
 
-   -Public routes(by anyone) (crud operations can be done by anyone)
-   -Producted routes(By authenticated users only)  (crud operations can be done by only the authenticated users only) (for this we use a middleware to verify the tokens which is called as tokenAuthenticationMiddleware)
+Built Product APIs with functionalities such as:
 
-   //To access cookies property of objects we need            otherwise request.cookies is undefenied
-   
+* Product Creation
+* Reading All Products
+* Reading Product by ID
+* Updating Products
+* Deleting Products
 
-   ### Nested Documents
-   same as nested objects, we'll have the nested documents
-   Most of the real-world applications will be prsent in the form of nested docs
-    < >
-    
-   ### .env It is not a js file .It is a configuration filr to hold the url and,port and secrete key
+Applied MongoDB operations using Mongoose methods.
+
+---
+
+## Schema and Model Creation
+
+Created Mongoose schemas and models with validation rules such as:
+
+* Required fields
+* Minimum and maximum length validations
+* Unique field constraints
+* Minimum and maximum numeric validations
+
+Learned how schemas define the structure of MongoDB documents.
+
+---
+
+## Middleware Implementation
+
+Implemented different types of middleware:
+
+### Built-in Middleware
+
+* `express.json()`
+* `cookie-parser`
+
+### Custom Middleware
+
+Created custom middleware for:
+
+* Request processing
+* Token verification
+* Route protection
+
+### Error Handling Middleware
+
+Implemented centralized error handling middleware for:
+
+* Validation errors
+* Cast errors
+* Server-side errors
+
+---
+
+## Authentication and Authorization
+
+Implemented user authentication system using:
+
+* `bcryptjs` for password hashing
+* `jsonwebtoken (JWT)` for token generation
+* Protected routes using token verification middleware
+* Cookie-based authentication
+
+Learned how login authentication and route protection work in backend applications.
+
+---
+
+## Nested Documents and References
+
+Created nested schemas for cart functionality using:
+
+* Nested documents
+* Object references with `ref`
+* Population using `populate()`
+
+Learned how relationships are handled in MongoDB using Mongoose.
+
+---
+
+## Environment Variables using `.env`
+
+Configured sensitive application data using `.env` file such as:
+
+* Port number
+* Database URL
+* Secret key
+
+Learned secure configuration handling in backend applications.
+
+---
+
+# Additional Concepts Practiced
+
+### MongoDB CRUD Operations
+
+Practiced:
+
+* `find()`
+* `findOne()`
+* `findById()`
+* `findOneAndUpdate()`
+* `findByIdAndDelete()`
+* `findOneAndDelete()`
+
+### Route Protection
+
+Learned how protected APIs restrict access only to authenticated users using middleware.
+
+### Validators During Update Operations
+
+Used `runValidators:true` to apply schema validation rules during update requests.
+
+### Handling Unavailable Resources
+
+Implemented proper responses for unavailable users and products using status codes and conditional checks.
+
+---
+
+# What I Learned This Week
+
+* Working with MongoDB and Mongoose
+* Connecting backend applications with databases
+* Creating schemas and models
+* MongoDB CRUD operations
+* Middleware concepts and implementation
+* Built-in and custom middleware usage
+* App-level and route-level middleware
+* Password hashing using bcrypt
+* JWT authentication and authorization
+* Protected API routes
+* Error handling middleware
+* Nested documents and references
+* Environment variable management using `.env`
+* Backend architecture with modular APIs
+* Validation and secure backend development

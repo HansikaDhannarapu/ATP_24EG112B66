@@ -28,10 +28,10 @@ function UserProfile() {
       setLoading(true);
       try {
         //read articles of all authors
-        let res=await axios.get("http://localhost:4000/user/articles",{withCredentials:true})
+        let res=await axios.get("https://atp-24eg112b66.onrender.com/user/articles",{withCredentials:true})
         //update articles state
         if(res.status===200){
-          setArticles((await res).data.payload)
+          setArticles(res.data.payload)
         }
       } catch (err) {
         setError(err.response?.data?.error || "Something went wrong");

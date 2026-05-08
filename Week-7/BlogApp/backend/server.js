@@ -1,10 +1,11 @@
 import exp from 'express'
 import { config } from 'dotenv'
 import { connect } from 'mongoose'
-import { userApp } from './APIs/userAPI.js'
-import { authorApp } from './APIs/authorAPI.js'
-import { adminApp } from './APIs/adminAPI.js'
+import { userApp } from './APIs/UserAPI.js'
+import { authorApp } from './APIs/AuthorAPI.js'
+import { adminApp } from './APIs/AdminAPI.js'
 import { commonApp } from './APIs/commonAPI.js'
+console.log("COMMON APP:", commonApp);
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 config()
@@ -17,9 +18,19 @@ app.use(cookieParser())
 app.use(exp.json())
 
 app.use(cors({
-  origin:['http://localhost:5173'],
-  credentials:true
-}))
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5137",
+    "https://atp-24-eg-112-b66.vercel.app",
+    "https://atp-24-eg-112-b66-c0retk5gk-hansikadhannarapus-projects.vercel.app"
+  ],
+  credentials: true
+}));
+
+
+app.get("/test-route", (req, res) => {
+  res.send("NEW CODE IS RUNNING");
+});
 
 app.use("/user", userApp)
 app.use("/author", authorApp)
@@ -161,7 +172,3 @@ app.use((err, req, res, next) => {
   //send server side error
   res.status(500).json({ message: "error occurred", error: "Server side error" });
 }); */
-
-
-
-

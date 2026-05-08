@@ -9,8 +9,13 @@ export const upload = multer({
   },
   //for security validation
   fileFilter: (req, file, cb) => {
-    if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
-      cb(null, true);
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/jpg"
+    ];
+     if (allowedTypes.includes(file.mimetype)) {
+ cb(null, true);
     } else {
       const err = new Error("Only JPG and PNG allowed");
       err.status = 400;
