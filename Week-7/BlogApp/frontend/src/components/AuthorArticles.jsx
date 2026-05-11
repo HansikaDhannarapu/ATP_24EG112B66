@@ -70,29 +70,53 @@ function AuthorArticles() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {articles.map((article) => (
-        <div key={article._id} className={`${articleCardClass} relative flex flex-col`}>
-          {/* Status Badge */}
-          <span className={article.isArticleActive ? articleStatusActive : articleStatusDeleted}>
-            {article.isArticleActive ? "ACTIVE" : "DELETED"}
-          </span>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-          <div className="flex flex-col gap-2">
-            <p className={articleMeta}>{article.category}</p>
+    {articles.map((article) => (
 
-            <p className={articleTitle}>{article.title}</p>
+      <div
+        key={article._id}
+        className={`${articleCardClass} relative flex flex-col bg-white rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-purple-100 p-6`}
+      >
 
-            <p className={articleExcerpt}>{article.content.slice(0, 60)}...</p>
-          </div>
+        {/* Status Badge */}
+        <span
+          className={
+            article.isArticleActive
+              ? "absolute top-4 right-4 bg-green-100 text-green-700 text-[10px] font-bold px-3 py-1 rounded-full tracking-wider"
+              : "absolute top-4 right-4 bg-red-100 text-red-600 text-[10px] font-bold px-3 py-1 rounded-full tracking-wider"
+          }
+        >
+          {article.isArticleActive ? "ACTIVE" : "DELETED"}
+        </span>
 
-          <button className={`${ghostBtn} mt-auto pt-4`} onClick={() => openArticle(article)}>
-            Read Article →
-          </button>
+        <div className="flex flex-col gap-3">
+
+          <p className={`${articleMeta} text-purple-500 uppercase tracking-wide`}>
+            {article.category}
+          </p>
+
+          <p className={`${articleTitle} text-purple-700`}>
+            {article.title}
+          </p>
+
+          <p className={`${articleExcerpt} text-gray-500 leading-relaxed`}>
+            {article.content.slice(0, 60)}...
+          </p>
+
         </div>
-      ))}
-    </div>
-  );
+
+        <button
+          className={`${ghostBtn} mt-auto pt-6 text-purple-600 hover:text-purple-800 transition-all duration-300 font-medium`}
+          onClick={() => openArticle(article)}
+        >
+          Read Article →
+        </button>
+
+      </div>
+    ))}
+  </div>
+);
 }
 
 export default AuthorArticles;

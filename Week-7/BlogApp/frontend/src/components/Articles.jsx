@@ -36,44 +36,66 @@ function Articles() {
   if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
 
   return (
-    <div className={pageWrapper}>
-      <h1 className={`${pageTitleClass} mb-12`}>Discover Articles</h1>
+  <div className={pageWrapper}>
 
-      {articles.length === 0 ? (
-        <p className="text-center text-gray-500 py-10">No articles available at the moment.</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article) => (
-            <div key={article._id} className="bg-[#f5f5f7] rounded-3xl p-8 hover:bg-[#e8e8ed] transition-colors flex flex-col justify-between">
-              <div>
-                <span className="text-[#0066cc] uppercase tracking-widest text-xs font-bold mb-3 block">
-                  {article.category}
-                </span>
-                <h3 className="text-2xl font-bold text-[#1d1d1f] mb-4 leading-tight">
-                  {article.title}
-                </h3>
-                <p className="text-[#6e6e73] mb-6 line-clamp-3 leading-relaxed">
-                  {article.content}
-                </p>
-              </div>
+    <h1 className={`${pageTitleClass} mb-12 text-purple-700`}>
+      Discover Articles
+    </h1>
 
-              <div className="pt-4 border-t border-[#d2d2d7]/50 flex justify-between items-center">
-                <span className="text-sm font-medium text-[#1d1d1f]">
-                  By {article.author?.firstName || "Author"}
-                </span>
-                <Link
-                  to={`/article/${article._id}`}
-                  className="bg-white text-[#0066cc] text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#0066cc] hover:text-white transition-colors"
-                >
-                  Read →
-                </Link>
-              </div>
+    {articles.length === 0 ? (
+
+      <p className="text-center text-purple-400 py-10">
+        No articles available at the moment.
+      </p>
+
+    ) : (
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {articles.map((article) => (
+
+          <div
+            key={article._id}
+            className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-purple-100 flex flex-col justify-between"
+          >
+
+            <div>
+
+              <span className="bg-purple-100 text-purple-700 uppercase tracking-widest text-xs font-bold mb-4 inline-block px-3 py-1 rounded-full">
+                {article.category}
+              </span>
+
+              <h3 className="text-2xl font-bold text-purple-700 mb-4 leading-tight">
+                {article.title}
+              </h3>
+
+              <p className="text-gray-500 mb-6 line-clamp-3 leading-relaxed">
+                {article.content}
+              </p>
+
             </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+
+            <div className="pt-4 border-t border-purple-100 flex justify-between items-center">
+
+              <span className="text-sm font-medium text-purple-500">
+                By {article.author?.firstName || "Author"}
+              </span>
+
+              <Link
+                to={`/article/${article._id}`}
+                className="bg-purple-100 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300"
+              >
+                Read →
+              </Link>
+
+            </div>
+
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+);
 }
 
 export default Articles;

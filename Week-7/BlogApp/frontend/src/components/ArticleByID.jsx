@@ -129,87 +129,140 @@ function ArticleByID() {
   if (!article) return null;
 
   return (
-    <div className={articlePageWrapper}>
-      {/* Header */}
-      <div className={articleHeader}>
-        <span className={articleCategory}>{article.category}</span>
+  <div className={`${articlePageWrapper} bg-purple-50 rounded-3xl p-6 shadow-lg`}>
 
-        <h1 className={`${articleMainTitle} uppercase`}>{article.title}</h1>
+    {/* Header */}
+    <div className={`${articleHeader} border-b border-purple-100 pb-6`}>
 
-        <div className={articleAuthorRow}>
-          <div className={authorInfo}>✍️ {user?.role}</div>
+      <span className={`${articleCategory} bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm font-semibold`}>
+        {article.category}
+      </span>
 
-          <div>{formatDate(article.createdAt)}</div>
+      <h1 className={`${articleMainTitle} uppercase text-purple-700 mt-4`}>
+        {article.title}
+      </h1>
+
+      <div className={`${articleAuthorRow} text-purple-400 mt-4`}>
+
+        <div className={authorInfo}>
+          ✍️ {user?.role}
         </div>
+
+        <div>
+          {formatDate(article.createdAt)}
+        </div>
+
       </div>
-
-      {/* Content */}
-      <div className={articleContent}>{article.content}</div>
-
-      {/* AUTHOR actions */}
-      {user?.role === "AUTHOR" && (
-        <div className={articleActions}>
-          <button className={editBtn} onClick={() => editArticle(article)}>
-            Edit
-          </button>
-
-          <button className={deleteBtn} onClick={toggleArticleStatus}>
-            {article.isArticleActive ? "Delete" : "Restore"}
-          </button>
-        </div>
-      )}
-      {/* form to add comment if role is USER */}
-      {/* USER actions */}
-      {user?.role === "USER" && (
-        <div className={articleActions}>
-          <form onSubmit={handleSubmit(addComment)}>
-            <input
-              type="text"
-              {...register("comment")}
-              className={inputClass}
-              placeholder="Write your comment here..."
-            />
-            <button type="submit" className="bg-amber-600 text-white px-5 py-2 rounded-2xl mt-5">
-              Add comment
-            </button>
-          </form>
-        </div>
-      )}
-
-      {/* comments */}
-      {/* Comments */}
-      <div className={commentsWrapper}>
-        {article.comments?.length === 0 && <p className="text-[#a1a1a6] text-sm text-center">No comments yet</p>}
-
-        {article.comments?.map((commentObj, index) => {
-          const name = commentObj.user?.email || "User";
-          const firstLetter = name.charAt(0).toUpperCase();
-
-          return (
-            <div key={index} className={commentCard}>
-              {/* Header */}
-              <div className={commentHeader}>
-                <div className={commentUserRow}>
-                  <div className={avatar}>{firstLetter}</div>
-
-                  <div>
-                    <p className={commentUser}>{name}</p>
-                    <p className={commentTime}>{formatDate(commentObj.createdAt || new Date())}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Comment */}
-              <p className={commentText}>{commentObj.comment}</p>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Footer */}
-      <div className={articleFooter}>Last updated: {formatDate(article.updatedAt)}</div>
     </div>
-  );
+
+    {/* Content */}
+    <div className={`${articleContent} text-gray-700 leading-relaxed mt-8`}>
+      {article.content}
+    </div>
+
+    {/* AUTHOR actions */}
+    {user?.role === "AUTHOR" && (
+      <div className={`${articleActions} mt-8 flex gap-4`}>
+
+        <button
+          className={`${editBtn} bg-purple-500 hover:bg-purple-600 text-white px-5 py-2 rounded-2xl transition-all duration-300`}
+          onClick={() => editArticle(article)}
+        >
+          Edit
+        </button>
+
+        <button
+          className={`${deleteBtn} bg-red-400 hover:bg-red-500 text-white px-5 py-2 rounded-2xl transition-all duration-300`}
+          onClick={toggleArticleStatus}
+        >
+          {article.isArticleActive ? "Delete" : "Restore"}
+        </button>
+
+      </div>
+    )}
+
+    {/* USER actions */}
+    {user?.role === "USER" && (
+      <div className={`${articleActions} mt-8`}>
+
+        <form onSubmit={handleSubmit(addComment)}>
+
+          <input
+            type="text"
+            {...register("comment")}
+            className={`${inputClass} bg-white border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+            placeholder="Write your comment here..."
+          />
+
+          <button
+            type="submit"
+            className="bg-purple-500 hover:bg-purple-600 text-white px-5 py-2 rounded-2xl mt-5 transition-all duration-300"
+          >
+            Add comment
+          </button>
+
+        </form>
+      </div>
+    )}
+
+    {/* Comments */}
+    <div className={`${commentsWrapper} mt-10`}>
+
+      {article.comments?.length === 0 && (
+        <p className="text-purple-300 text-sm text-center">
+          No comments yet
+        </p>
+      )}
+
+      {article.comments?.map((commentObj, index) => {
+        const name = commentObj.user?.email || "User";
+        const firstLetter = name.charAt(0).toUpperCase();
+
+        return (
+          <div
+            key={index}
+            className={`${commentCard} bg-white rounded-3xl p-5 shadow-md border border-purple-100 mb-5`}
+          >
+
+            {/* Header */}
+            <div className={commentHeader}>
+
+              <div className={commentUserRow}>
+
+                <div className={`${avatar} bg-purple-100 text-purple-700`}>
+                  {firstLetter}
+                </div>
+
+                <div>
+                  <p className={`${commentUser} text-purple-700 font-semibold`}>
+                    {name}
+                  </p>
+
+                  <p className={`${commentTime} text-purple-400`}>
+                    {formatDate(commentObj.createdAt || new Date())}
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Comment */}
+            <p className={`${commentText} text-gray-700 mt-4`}>
+              {commentObj.comment}
+            </p>
+
+          </div>
+        );
+      })}
+    </div>
+
+    {/* Footer */}
+    <div className={`${articleFooter} text-purple-400 border-t border-purple-100 pt-5 mt-8`}>
+      Last updated: {formatDate(article.updatedAt)}
+    </div>
+
+  </div>
+);
 }
 
 export default ArticleByID;

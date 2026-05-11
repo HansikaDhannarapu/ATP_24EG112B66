@@ -53,47 +53,84 @@ function EditArticle() {
   };
 
   return (
-    <div className={`${formCard} mt-10`}>
-      <h2 className={formTitle}>Edit Article</h2>
+  <div className={`${formCard} mt-10 bg-white shadow-xl rounded-3xl p-8 border border-purple-100`}>
 
-      <form onSubmit={handleSubmit(updateArticle)}>
-        {/* Title */}
-        <div className={formGroup}>
-          <label className={labelClass}>Title</label>
+    <h2 className={`${formTitle} text-purple-700 text-center mb-8`}>
+      Edit Article
+    </h2>
 
-          <input className={inputClass} {...register("title", { required: "Title required" })} />
+    <form onSubmit={handleSubmit(updateArticle)}>
 
-          {errors.title && <p className={errorClass}>{errors.title.message}</p>}
-        </div>
+      {/* Title */}
+      <div className={formGroup}>
 
-        {/* Category */}
-        <div className={formGroup}>
-          <label className={labelClass}>Category</label>
+        <label className={`${labelClass} text-purple-700`}>
+          Title
+        </label>
 
-          <select className={inputClass} {...register("category", { required: "Category required" })}>
-            <option value="">Select category</option>
-            <option value="technology">Technology</option>
-            <option value="programming">Programming</option>
-            <option value="ai">AI</option>
-            <option value="web-development">Web Development</option>
-          </select>
+        <input
+          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          {...register("title", { required: "Title required" })}
+        />
 
-          {errors.category && <p className={errorClass}>{errors.category.message}</p>}
-        </div>
+        {errors.title && (
+          <p className={errorClass}>{errors.title.message}</p>
+        )}
 
-        {/* Content */}
-        <div className={formGroup}>
-          <label className={labelClass}>Content</label>
+      </div>
 
-          <textarea rows="14" className={inputClass} {...register("content", { required: "Content required" })} />
+      {/* Category */}
+      <div className={formGroup}>
 
-          {errors.content && <p className={errorClass}>{errors.content.message}</p>}
-        </div>
+        <label className={`${labelClass} text-purple-700`}>
+          Category
+        </label>
 
-        <button className={submitBtn}>Update Article</button>
-      </form>
-    </div>
-  );
+        <select
+          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          {...register("category", { required: "Category required" })}
+        >
+          <option value="">Select category</option>
+          <option value="technology">Technology</option>
+          <option value="programming">Programming</option>
+          <option value="ai">AI</option>
+          <option value="web-development">Web Development</option>
+        </select>
+
+        {errors.category && (
+          <p className={errorClass}>{errors.category.message}</p>
+        )}
+
+      </div>
+
+      {/* Content */}
+      <div className={formGroup}>
+
+        <label className={`${labelClass} text-purple-700`}>
+          Content
+        </label>
+
+        <textarea
+          rows="14"
+          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          {...register("content", { required: "Content required" })}
+        />
+
+        {errors.content && (
+          <p className={errorClass}>{errors.content.message}</p>
+        )}
+
+      </div>
+
+      <button
+        className={`${submitBtn} bg-purple-500 hover:bg-purple-600 text-white rounded-2xl transition-all duration-300 shadow-md`}
+      >
+        Update Article
+      </button>
+
+    </form>
+  </div>
+);
 }
 
 export default EditArticle;

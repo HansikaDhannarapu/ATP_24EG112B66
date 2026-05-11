@@ -53,79 +53,110 @@ function WriteArticles() {
   };
 
   return (
-    <div className={formCard}>
-      <h2 className={formTitle}>Write New Article</h2>
+  <div className={`${formCard} bg-white shadow-xl rounded-3xl p-8 border border-purple-100`}>
 
-      <form onSubmit={handleSubmit(submitArticle)}>
-        {/* Title */}
-        <div className={formGroup}>
-          <label className={labelClass}>Title</label>
+    <h2 className={`${formTitle} text-purple-700 text-center mb-8`}>
+      Write New Article
+    </h2>
 
-          <input
-            type="text"
-            className={inputClass}
-            placeholder="Enter article title"
-            {...register("title", {
-              required: "Title is required",
-              minLength: {
-                value: 5,
-                message: "Title must be at least 5 characters",
-              },
-            })}
-          />
+    <form onSubmit={handleSubmit(submitArticle)}>
 
-          {errors.title && <p className={errorClass}>{errors.title.message}</p>}
-        </div>
+      {/* Title */}
+      <div className={formGroup}>
 
-        {/* Category */}
-        <div className={formGroup}>
-          <label className={labelClass}>Category</label>
+        <label className={`${labelClass} text-purple-700`}>
+          Title
+        </label>
 
-          <select
-            className={inputClass}
-            {...register("category", {
-              required: "Category is required",
-            })}
-          >
-            <option value="">Select category</option>
-            <option value="technology">Technology</option>
-            <option value="programming">Programming</option>
-            <option value="ai">AI</option>
-            <option value="web-development">Web Development</option>
-          </select>
+        <input
+          type="text"
+          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          placeholder="Enter article title"
+          {...register("title", {
+            required: "Title is required",
+            minLength: {
+              value: 5,
+              message: "Title must be at least 5 characters",
+            },
+          })}
+        />
 
-          {errors.category && <p className={errorClass}>{errors.category.message}</p>}
-        </div>
+        {errors.title && (
+          <p className={errorClass}>{errors.title.message}</p>
+        )}
 
-        {/* Content */}
-        <div className={formGroup}>
-          <label className={labelClass}>Content</label>
+      </div>
 
-          <textarea
-            rows="8"
-            className={inputClass}
-            placeholder="Write your article content..."
-            {...register("content", {
-              required: "Content is required",
-              minLength: {
-                value: 50,
-                message: "Content must be at least 50 characters",
-              },
-            })}
-          />
+      {/* Category */}
+      <div className={formGroup}>
 
-          {errors.content && <p className={errorClass}>{errors.content.message}</p>}
-        </div>
+        <label className={`${labelClass} text-purple-700`}>
+          Category
+        </label>
 
-        {/* Submit */}
-        <button className={submitBtn} type="submit" disabled={loading}>
-          {loading ? "Publishing..." : "Publish Article"}
-        </button>
+        <select
+          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          {...register("category", {
+            required: "Category is required",
+          })}
+        >
+          <option value="">Select category</option>
+          <option value="technology">Technology</option>
+          <option value="programming">Programming</option>
+          <option value="ai">AI</option>
+          <option value="web-development">Web Development</option>
+        </select>
 
-        {loading && <p className={loadingClass}>Publishing article...</p>}
-      </form>
-    </div>
-  );
+        {errors.category && (
+          <p className={errorClass}>{errors.category.message}</p>
+        )}
+
+      </div>
+
+      {/* Content */}
+      <div className={formGroup}>
+
+        <label className={`${labelClass} text-purple-700`}>
+          Content
+        </label>
+
+        <textarea
+          rows="8"
+          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          placeholder="Write your article content..."
+          {...register("content", {
+            required: "Content is required",
+            minLength: {
+              value: 50,
+              message: "Content must be at least 50 characters",
+            },
+          })}
+        />
+
+        {errors.content && (
+          <p className={errorClass}>{errors.content.message}</p>
+        )}
+
+      </div>
+
+      {/* Submit */}
+      <button
+        className={`${submitBtn} bg-purple-500 hover:bg-purple-600 text-white rounded-2xl transition-all duration-300 shadow-md`}
+        type="submit"
+        disabled={loading}
+      >
+        {loading ? "Publishing..." : "Publish Article"}
+      </button>
+
+      {loading && (
+        <p className={`${loadingClass} text-purple-500 mt-4`}>
+          Publishing article...
+        </p>
+      )}
+
+    </form>
+  </div>
+);
 }
 
 export default WriteArticles;

@@ -68,77 +68,114 @@ function UserProfile() {
     return <p className={loadingClass}>Loading articles...</p>;
   }
 
-  return (
-    <div className="max-w-5xl mx-auto px-6 py-10">
-      {/* ERROR */}
-      {error && <p className={errorClass}>{error}</p>}
+ return (
+  <div className="max-w-5xl mx-auto px-6 py-10">
 
-      {/* PROFILE HEADER */}
-      <div className="bg-white border border-[#e8e8ed] rounded-3xl p-6 mb-8 shadow-sm flex items-center justify-between">
-        {/* LEFT */}
-        <div className="flex items-center gap-4">
-          {/* Avatar */}
-          {currentUser?.profileImageUrl ? (
-            <img
-              src={currentUser.profileImageUrl}
-              className="w-16 h-16 rounded-full object-cover border"
-              alt="profile"
-            />
-          ) : (
-            <div className="w-16 h-16 rounded-full bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center text-xl font-semibold">
-              {currentUser?.firstName?.charAt(0).toUpperCase()}
-            </div>
-          )}
+    {/* ERROR */}
+    {error && (
+      <p className={`${errorClass} text-center`}>
+        {error}
+      </p>
+    )}
 
-          {/* Name */}
-          <div>
-            <p className="text-sm text-[#6e6e73]">Welcome back</p>
-            <h2 className="text-xl font-semibold text-[#1d1d1f]">{currentUser?.firstName}</h2>
-          </div>
-        </div>
+    {/* PROFILE HEADER */}
+    <div className="bg-white shadow-lg rounded-3xl p-6 mb-8 flex items-center justify-between border border-purple-100">
 
-        {/* LOGOUT */}
-        <button
-          className="bg-[#ff3b30] text-white text-sm px-5 py-2 rounded-full hover:bg-[#d62c23] transition"
-          onClick={onLogout}
-        >
-          Logout
-        </button>
-      </div>
+      {/* LEFT */}
+      <div className="flex items-center gap-4">
 
-      {/* ARTICLES SECTION */}
-      <div className="mt-4">
-        <h3 className="text-lg font-semibold text-[#1d1d1f] mb-4">Latest Articles</h3>
-
-        {/* EMPTY STATE */}
-        {articles.length === 0 ? (
-          <p className="text-[#a1a1a6] text-sm text-center py-10">No articles available yet</p>
+        {/* Avatar */}
+        {currentUser?.profileImageUrl ? (
+          <img
+            src={currentUser.profileImageUrl}
+            className="w-16 h-16 rounded-full object-cover border-2 border-purple-200 shadow-sm"
+            alt="profile"
+          />
         ) : (
-          <div className={articleGrid}>
-            {articles.map((articleObj) => (
-              <div className={articleCardClass} key={articleObj._id}>
-                <div className="flex flex-col h-full">
-                  {/* TOP */}
-                  <div>
-                    <p className={articleTitle}>{articleObj.title}</p>
-
-                    <p className="text-sm text-[#6e6e73] mt-1">{articleObj.content.slice(0, 80)}...</p>
-
-                    <p className={`${timestampClass} mt-2`}>{formatDateIST(articleObj.createdAt)}</p>
-                  </div>
-
-                  {/* ACTION */}
-                  <button className={`${ghostBtn} mt-auto pt-4`} onClick={() => navigateToArticleByID(articleObj)}>
-                    Read Article →
-                  </button>
-                </div>
-              </div>
-            ))}
+          <div className="w-16 h-16 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xl font-semibold shadow-sm">
+            {currentUser?.firstName?.charAt(0).toUpperCase()}
           </div>
         )}
+
+        {/* Name */}
+        <div>
+          <p className="text-sm text-purple-400">
+            Welcome back
+          </p>
+
+          <h2 className="text-xl font-semibold text-purple-700">
+            {currentUser?.firstName}
+          </h2>
+        </div>
+
       </div>
+
+      {/* LOGOUT */}
+      <button
+        className="bg-purple-500 text-white text-sm px-5 py-2 rounded-full hover:bg-purple-600 transition-all duration-300 shadow-md"
+        onClick={onLogout}
+      >
+        Logout
+      </button>
+
     </div>
-  );
+
+    {/* ARTICLES SECTION */}
+    <div className="mt-4">
+
+      <h3 className="text-xl font-semibold text-purple-700 mb-5">
+        Latest Articles
+      </h3>
+
+      {/* EMPTY STATE */}
+      {articles.length === 0 ? (
+        <p className="text-purple-300 text-sm text-center py-10">
+          No articles available yet
+        </p>
+      ) : (
+        <div className={articleGrid}>
+          {articles.map((articleObj) => (
+            <div
+              className={`${articleCardClass} bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 border border-purple-100`}
+              key={articleObj._id}
+            >
+
+              <div className="flex flex-col h-full">
+
+                {/* TOP */}
+                <div>
+
+                  <p className={`${articleTitle} text-purple-700`}>
+                    {articleObj.title}
+                  </p>
+
+                  <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+                    {articleObj.content.slice(0, 80)}...
+                  </p>
+
+                  <p className={`${timestampClass} mt-3 text-purple-400`}>
+                    {formatDateIST(articleObj.createdAt)}
+                  </p>
+
+                </div>
+
+                {/* ACTION */}
+                <button
+                  className={`${ghostBtn} mt-auto pt-4 text-purple-600 hover:text-purple-800 transition-all duration-300`}
+                  onClick={() => navigateToArticleByID(articleObj)}
+                >
+                  Read Article →
+                </button>
+
+              </div>
+
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+);
 }
 
 export default UserProfile;
