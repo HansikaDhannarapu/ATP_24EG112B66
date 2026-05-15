@@ -36,26 +36,9 @@
 * Introduction to Frontend Tech Stack
 * HTML & CSS Fundamentals
 
----
 
-# Assignments Structure
 
-## Capstone Project – Blog Application Backend
 
-Worked on the backend implementation of the Blog Application using Node.js, Express.js, MongoDB, and JWT Authentication.
-
-Implemented features such as:
-
-* User, Author, and Admin authentication
-* Protected routes
-* Role-based access control
-* Article creation and management
-* Password handling and validation
-* Token verification middleware
-
-Learned backend architecture and secure authentication flow in real-world applications.
-
----
 
 ## HTML Practice Assignments
 
@@ -70,7 +53,6 @@ Created a webpage using basic HTML elements such as:
 
 Learned the structure of HTML documents and nesting of list elements.
 
----
 
 ### Assignment 2 – Profile Webpage
 
@@ -84,7 +66,6 @@ Built a simple profile-style webpage containing:
 
 Practiced page structuring and content organization using HTML fundamentals.
 
----
 
 # What I Learned This Week
 
