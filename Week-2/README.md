@@ -32,7 +32,7 @@
 * Creating Backend Applications
 * HTTP Server and REST API Implementation
 
----
+
 
 # Assignments Structure
 
@@ -70,7 +70,7 @@ Implemented movie filtering, rating analysis, and searching operations for recom
 
 Analyzed banking transactions by calculating account balance and processing credit/debit operations.
 
----
+
 
 ## ES6 Feature Assignments
 
@@ -97,7 +97,7 @@ Practiced:
 
 Implemented shallow copy using spread operator and deep copy using `structuredClone()` to understand mutation behavior in nested objects.
 
----
+
 
 ## Asynchronous JavaScript Assignments
 
@@ -109,7 +109,7 @@ Used `setTimeout()` to simulate delayed exam evaluation and result generation.
 
 Implemented OTP countdown functionality using `setInterval()` and timer control logic.
 
----
+
 
 ## Backend Development Assignments
 
@@ -144,7 +144,7 @@ Created custom middleware functions for request processing and routing flow cont
 
 Learned modular backend structure, request handling, JSON middleware usage, and API routing concepts.
 
----
+
 
 # What I Learned This Week
 
