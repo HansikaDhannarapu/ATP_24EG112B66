@@ -23,7 +23,7 @@
 * Handling Unavailable Resources
 * Running Validators During Update Operations
 
----
+
 
 # Assignments Structure
 
@@ -40,7 +40,7 @@ Implemented:
 * Express middleware configuration
 * API routing structure
 
----
+
 
 ## User REST API Implementation
 
@@ -54,7 +54,7 @@ Developed complete CRUD operations for users:
 
 Integrated MongoDB collections using Mongoose models and schemas.
 
----
+
 
 ## Product REST API Implementation
 
@@ -68,7 +68,7 @@ Built Product APIs with functionalities such as:
 
 Applied MongoDB operations using Mongoose methods.
 
----
+
 
 ## Schema and Model Creation
 
@@ -81,7 +81,7 @@ Created Mongoose schemas and models with validation rules such as:
 
 Learned how schemas define the structure of MongoDB documents.
 
----
+
 
 ## Middleware Implementation
 
@@ -108,7 +108,7 @@ Implemented centralized error handling middleware for:
 * Cast errors
 * Server-side errors
 
----
+
 
 ## Authentication and Authorization
 
@@ -121,7 +121,7 @@ Implemented user authentication system using:
 
 Learned how login authentication and route protection work in backend applications.
 
----
+
 
 ## Nested Documents and References
 
@@ -133,7 +133,7 @@ Created nested schemas for cart functionality using:
 
 Learned how relationships are handled in MongoDB using Mongoose.
 
----
+
 
 ## Environment Variables using `.env`
 
@@ -145,7 +145,7 @@ Configured sensitive application data using `.env` file such as:
 
 Learned secure configuration handling in backend applications.
 
----
+
 
 # Additional Concepts Practiced
 
@@ -172,7 +172,7 @@ Used `runValidators:true` to apply schema validation rules during update request
 
 Implemented proper responses for unavailable users and products using status codes and conditional checks.
 
----
+
 
 # What I Learned This Week
 
