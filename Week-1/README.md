@@ -10,7 +10,7 @@
 * Loops and Iteration
 * Array Manipulation Methods
 
----
+
 
 # Assignments Structure
 
@@ -44,7 +44,6 @@ Implemented a function that accepts an array as input and returns the sum of its
 
 Built a simple search functionality to check whether a key element exists in an array.
 
----
 
 ## Day 2 Assignment
 
@@ -58,7 +57,7 @@ Worked with an array of employee objects and performed operations such as:
 
 Used JavaScript array methods like `splice()` and loops for dynamic data manipulation.
 
----
+
 
 # Additional Practice Programs
 
@@ -98,7 +97,7 @@ Practiced dynamic insertion, deletion, and updating of array elements using:
 * `unshift()`
 * `splice()`
 
----
+
 
 # What I Learned This Week
 
