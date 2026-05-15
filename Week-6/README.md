@@ -34,7 +34,7 @@
 * Frontend Blog App
 * User Registration & Login
 
----
+
 
 # Assignments Structure
 
@@ -52,7 +52,7 @@ Implemented:
 
 Learned CRUD operations in React applications.
 
----
+
 
 ## Form Handling using React Hook Form
 
@@ -65,7 +65,7 @@ Implemented:
 * Form submission
 * Controlled form handling
 
----
+
 
 ## API Integration
 
@@ -77,7 +77,7 @@ Handled:
 * Error states
 * Dynamic data rendering
 
----
+
 
 ## Client Side Routing
 
@@ -90,7 +90,7 @@ Learned:
 * Route handling
 * Programmatic navigation
 
----
+
 
 ## State Management
 
@@ -101,7 +101,7 @@ Worked with:
 
 Learned state sharing and global state management.
 
----
+
 
 ## Blog App Frontend
 
@@ -114,7 +114,7 @@ Built:
 * Protected UI flow
 * Authentication handling
 
----
+
 
 # What I Learned This Week
 
