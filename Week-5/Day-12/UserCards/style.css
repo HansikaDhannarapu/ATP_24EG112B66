@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(216, 180, 223, 0.463);
+}
+table{
+    width: 650px;
+    margin: auto;
+    margin-top: 200px;
+    text-align: center;
+    margin-bottom: 200px;
+    border-radius:30px;
+    overflow: hidden;
+    box-shadow: 10px 10px 20px rgb(199, 34, 157) ;
+}
+table,th,td{
+    border-collapse:separate;
+    border-spacing:0 ;
+    padding: 10px;
+}
+tbody tr:nth-child(odd){
+    background-color: rgb(246, 191, 232);
+}
+tbody tr:nth-child(even){
+    background-color: whitesmoke;
+}
+th{
+    background-color: rgba(200, 12, 234, 0.44);
+}
+img{
+    height:70px;
+    width:70px;
+    border-radius: 50%;
+
+}

@@ -32,7 +32,7 @@
 * State & Props
 * Component Reusability
 
----
+
 
 # Assignments Structure
 
@@ -50,7 +50,7 @@ Designed a user table with images, colors, and styled rows.
 
 Built responsive card layouts using Flexbox.
 
----
+
 
 ## Day 13 Assignments
 
@@ -62,7 +62,7 @@ Created a responsive webpage using Tailwind CSS.
 
 Built responsive layouts using Flexbox and Tailwind CSS.
 
----
+
 
 ## Day 14 Assignments
 
@@ -90,7 +90,7 @@ Built a counter app using `useState()`.
 
 Created a product listing UI with reusable components. 
 
----
+
 
 # What I Learned This Week
 
