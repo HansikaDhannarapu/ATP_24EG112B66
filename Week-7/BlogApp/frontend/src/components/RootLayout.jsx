@@ -14,11 +14,11 @@ function RootLayout() {
   }, [])
 
   return (
-  <div className="min-h-screen flex flex-col bg-gradient-to-br from-white via-purple-50 to-purple-100">
+  <div className="min-h-screen flex flex-col bg-[#f7f8fa]">
 
     <Header />
 
-    <div className="flex-grow mx-6 md:mx-16 lg:mx-32 py-8">
+    <div className="flex-grow mx-4 md:mx-10 lg:mx-20 py-8">
       <Outlet />
     </div>
 

@@ -62,7 +62,7 @@ function AdminProfile() {
   <div className={pageWrapper}>
 
     {/* PROFILE HEADER */}
-    <div className="bg-white shadow-lg rounded-3xl p-6 mb-8 flex items-center justify-between border border-purple-100">
+    <div className="bg-white shadow-sm rounded-lg p-6 mb-8 flex items-center justify-between border border-slate-200">
 
       {/* LEFT */}
       <div className="flex items-center gap-4">
@@ -71,18 +71,18 @@ function AdminProfile() {
         {currentUser?.profileImageUrl ? (
           <img
             src={currentUser.profileImageUrl}
-            className="w-16 h-16 rounded-full object-cover border-2 border-purple-200 shadow-sm"
+            className="w-16 h-16 rounded-full object-cover border border-slate-200"
             alt="profile"
           />
         ) : (
-          <div className="w-16 h-16 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xl font-semibold shadow-sm">
+          <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-xl font-semibold">
             {currentUser?.firstName?.charAt(0).toUpperCase() || "A"}
           </div>
         )}
 
         {/* Name */}
         <div>
-          <p className="text-sm text-purple-400">
+          <p className="text-sm text-slate-500">
             Welcome back, Admin
           </p>
         </div>
@@ -91,7 +91,7 @@ function AdminProfile() {
 
       {/* LOGOUT */}
       <button
-        className="bg-purple-500 text-white text-sm px-5 py-2 rounded-full hover:bg-purple-600 transition-all duration-300 cursor-pointer shadow-md"
+        className="bg-slate-900 text-white text-sm px-5 py-2 rounded-md hover:bg-slate-700 transition-colors cursor-pointer"
         onClick={onLogout}
       >
         Logout
@@ -100,29 +100,29 @@ function AdminProfile() {
     </div>
 
     {/* TITLE */}
-    <h1 className={`${pageTitleClass} text-purple-700`}>
+    <h1 className={pageTitleClass}>
       Admin Dashboard
     </h1>
 
-    <p className="text-purple-400 mb-10">
+    <p className="text-slate-500 mb-10">
       Manage registered users and authors.
     </p>
 
     {/* EMPTY STATE */}
     {users.length === 0 ? (
-      <div className={`${emptyStateClass} bg-white rounded-3xl shadow-md text-purple-400`}>
+      <div className={emptyStateClass}>
         No users found.
       </div>
     ) : (
 
-      <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-purple-100">
+      <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-slate-200">
 
         <div className="overflow-x-auto">
 
           <table className="w-full text-left">
 
             {/* TABLE HEADER */}
-            <thead className="bg-purple-100 border-b border-purple-200 text-sm font-semibold text-purple-700">
+            <thead className="bg-slate-100 border-b border-slate-200 text-sm font-semibold text-slate-700">
               <tr>
                 <th className="px-6 py-5">Name</th>
                 <th className="px-6 py-5">Email</th>
@@ -133,12 +133,12 @@ function AdminProfile() {
             </thead>
 
             {/* TABLE BODY */}
-            <tbody className="divide-y divide-purple-100 text-sm text-gray-700">
+            <tbody className="divide-y divide-slate-200 text-sm text-slate-700">
 
               {users.map((user) => (
                 <tr
                   key={user._id}
-                  className="hover:bg-purple-50 transition-all duration-300"
+                  className="hover:bg-slate-50 transition-colors duration-200"
                 >
 
                   {/* NAME */}
@@ -148,10 +148,10 @@ function AdminProfile() {
                       <img
                         src={user.profileImageUrl}
                         alt="avatar"
-                        className="w-8 h-8 rounded-full border border-purple-200"
+                        className="w-8 h-8 rounded-full border border-slate-200"
                       />
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs">
+                      <div className="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs">
                         {user.firstName?.charAt(0) || "U"}
                       </div>
                     )}
@@ -163,13 +163,13 @@ function AdminProfile() {
                   </td>
 
                   {/* EMAIL */}
-                  <td className="px-6 py-4 text-purple-500 font-medium">
+                  <td className="px-6 py-4 text-slate-600 font-medium">
                     {user.email}
                   </td>
 
                   {/* ROLE */}
                   <td className="px-6 py-4">
-                    <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full font-semibold text-[10px] uppercase tracking-wider">
+                    <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full font-semibold text-[10px] uppercase tracking-wider">
                       {user.role}
                     </span>
                   </td>
@@ -178,11 +178,11 @@ function AdminProfile() {
                   <td className="px-6 py-4">
 
                     {user.isUserActive !== false ? (
-                      <span className="text-green-700 bg-green-100 px-3 py-1 rounded-full font-semibold text-[10px] uppercase tracking-wide">
+                      <span className="text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full font-semibold text-[10px] uppercase tracking-wide">
                         Active
                       </span>
                     ) : (
-                      <span className="text-red-600 bg-red-100 px-3 py-1 rounded-full font-semibold text-[10px] uppercase tracking-wide">
+                      <span className="text-rose-700 bg-rose-50 border border-rose-100 px-3 py-1 rounded-full font-semibold text-[10px] uppercase tracking-wide">
                         Blocked
                       </span>
                     )}
@@ -201,8 +201,8 @@ function AdminProfile() {
                       }
                       className={
                         user.isUserActive !== false
-                          ? "bg-red-400 text-white font-semibold flex-1 px-4 py-1.5 rounded-full hover:bg-red-500 transition-all duration-300 cursor-pointer text-xs w-full text-center"
-                          : "bg-green-400 text-white font-semibold flex-1 px-4 py-1.5 rounded-full hover:bg-green-500 transition-all duration-300 cursor-pointer text-xs w-full text-center"
+                          ? "bg-rose-600 text-white font-medium flex-1 px-4 py-1.5 rounded-md hover:bg-rose-700 transition-colors cursor-pointer text-xs w-full text-center"
+                          : "bg-emerald-600 text-white font-medium flex-1 px-4 py-1.5 rounded-md hover:bg-emerald-700 transition-colors cursor-pointer text-xs w-full text-center"
                       }
                     >
                       {user.isUserActive !== false

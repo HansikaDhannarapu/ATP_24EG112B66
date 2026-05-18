@@ -2,10 +2,10 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className="bg-white/70 backdrop-blur-md shadow-inner border-t border-pink-100 py-6 mt-10">
+    <footer className="bg-white border-t border-slate-200 py-5 mt-10">
       
       <div className="text-center">
-        <h1 className="text-xl font-semibold text-purple-700 tracking-wide">
+        <h1 className="text-sm font-medium text-slate-500">
           Footer
         </h1>
 

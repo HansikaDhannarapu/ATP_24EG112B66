@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -12,14 +12,11 @@ import {
   inputClass,
   submitBtn,
   errorClass,
-  articlePageWrapper,
 } from "../styles/common";
 
 function EditArticle() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { id } = useParams();
-
   const article = location.state;
 
   const {
@@ -53,9 +50,9 @@ function EditArticle() {
   };
 
   return (
-  <div className={`${formCard} mt-10 bg-white shadow-xl rounded-3xl p-8 border border-purple-100`}>
+  <div className={`${formCard} mt-10`}>
 
-    <h2 className={`${formTitle} text-purple-700 text-center mb-8`}>
+    <h2 className={`${formTitle} mb-8`}>
       Edit Article
     </h2>
 
@@ -64,12 +61,12 @@ function EditArticle() {
       {/* Title */}
       <div className={formGroup}>
 
-        <label className={`${labelClass} text-purple-700`}>
+        <label className={labelClass}>
           Title
         </label>
 
         <input
-          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          className={inputClass}
           {...register("title", { required: "Title required" })}
         />
 
@@ -82,12 +79,12 @@ function EditArticle() {
       {/* Category */}
       <div className={formGroup}>
 
-        <label className={`${labelClass} text-purple-700`}>
+        <label className={labelClass}>
           Category
         </label>
 
         <select
-          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          className={inputClass}
           {...register("category", { required: "Category required" })}
         >
           <option value="">Select category</option>
@@ -106,13 +103,13 @@ function EditArticle() {
       {/* Content */}
       <div className={formGroup}>
 
-        <label className={`${labelClass} text-purple-700`}>
+        <label className={labelClass}>
           Content
         </label>
 
         <textarea
           rows="14"
-          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          className={inputClass}
           {...register("content", { required: "Content required" })}
         />
 
@@ -123,7 +120,7 @@ function EditArticle() {
       </div>
 
       <button
-        className={`${submitBtn} bg-purple-500 hover:bg-purple-600 text-white rounded-2xl transition-all duration-300 shadow-md`}
+        className={submitBtn}
       >
         Update Article
       </button>

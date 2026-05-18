@@ -79,7 +79,7 @@ function UserProfile() {
     )}
 
     {/* PROFILE HEADER */}
-    <div className="bg-white shadow-lg rounded-3xl p-6 mb-8 flex items-center justify-between border border-purple-100">
+    <div className="bg-white shadow-sm rounded-lg p-6 mb-8 flex items-center justify-between border border-slate-200">
 
       {/* LEFT */}
       <div className="flex items-center gap-4">
@@ -88,22 +88,22 @@ function UserProfile() {
         {currentUser?.profileImageUrl ? (
           <img
             src={currentUser.profileImageUrl}
-            className="w-16 h-16 rounded-full object-cover border-2 border-purple-200 shadow-sm"
+            className="w-16 h-16 rounded-full object-cover border border-slate-200"
             alt="profile"
           />
         ) : (
-          <div className="w-16 h-16 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xl font-semibold shadow-sm">
+          <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-xl font-semibold">
             {currentUser?.firstName?.charAt(0).toUpperCase()}
           </div>
         )}
 
         {/* Name */}
         <div>
-          <p className="text-sm text-purple-400">
+          <p className="text-sm text-slate-500">
             Welcome back
           </p>
 
-          <h2 className="text-xl font-semibold text-purple-700">
+          <h2 className="text-xl font-semibold text-slate-900">
             {currentUser?.firstName}
           </h2>
         </div>
@@ -112,7 +112,7 @@ function UserProfile() {
 
       {/* LOGOUT */}
       <button
-        className="bg-purple-500 text-white text-sm px-5 py-2 rounded-full hover:bg-purple-600 transition-all duration-300 shadow-md"
+        className="bg-slate-900 text-white text-sm px-5 py-2 rounded-md hover:bg-slate-700 transition-colors"
         onClick={onLogout}
       >
         Logout
@@ -123,20 +123,20 @@ function UserProfile() {
     {/* ARTICLES SECTION */}
     <div className="mt-4">
 
-      <h3 className="text-xl font-semibold text-purple-700 mb-5">
+      <h3 className="text-xl font-semibold text-slate-900 mb-5">
         Latest Articles
       </h3>
 
       {/* EMPTY STATE */}
       {articles.length === 0 ? (
-        <p className="text-purple-300 text-sm text-center py-10">
+        <p className="text-slate-500 text-sm text-center py-10">
           No articles available yet
         </p>
       ) : (
         <div className={articleGrid}>
           {articles.map((articleObj) => (
             <div
-              className={`${articleCardClass} bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 border border-purple-100`}
+              className={articleCardClass}
               key={articleObj._id}
             >
 
@@ -145,15 +145,15 @@ function UserProfile() {
                 {/* TOP */}
                 <div>
 
-                  <p className={`${articleTitle} text-purple-700`}>
+                  <p className={articleTitle}>
                     {articleObj.title}
                   </p>
 
-                  <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+                  <p className="text-sm text-slate-600 mt-2 leading-relaxed">
                     {articleObj.content.slice(0, 80)}...
                   </p>
 
-                  <p className={`${timestampClass} mt-3 text-purple-400`}>
+                  <p className={`${timestampClass} mt-3`}>
                     {formatDateIST(articleObj.createdAt)}
                   </p>
 
@@ -161,7 +161,7 @@ function UserProfile() {
 
                 {/* ACTION */}
                 <button
-                  className={`${ghostBtn} mt-auto pt-4 text-purple-600 hover:text-purple-800 transition-all duration-300`}
+                  className={`${ghostBtn} mt-auto pt-4 text-left`}
                   onClick={() => navigateToArticleByID(articleObj)}
                 >
                   Read Article →

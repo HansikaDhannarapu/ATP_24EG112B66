@@ -21,7 +21,7 @@ function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [loading, setLoading] = useState(false);
+  const setLoading = useState(false)[1];
   const [apiError, setApiError] = useState(null);
   const [preview, setPriview] = useState(null);
   const navigate = useNavigate();
@@ -63,11 +63,11 @@ function Register() {
   };
 
  return (
-  <div className={`${pageBackground} flex items-center justify-center py-16 px-4 bg-purple-50`}>
+  <div className={`${pageBackground} flex items-center justify-center py-16 px-4`}>
     
-    <div className={`${formCard} bg-white shadow-xl rounded-3xl p-8`}>
+    <div className={formCard}>
       
-      <h2 className={`${formTitle} text-purple-700 text-center`}>
+      <h2 className={formTitle}>
         Create an Account
       </h2>
 
@@ -82,36 +82,36 @@ function Register() {
         
         {/* ROLE */}
         <div className="mb-5">
-          <p className={`${labelClass} text-purple-700`}>
+          <p className={labelClass}>
             Register as
           </p>
 
           <div className="flex gap-6 mt-2">
 
-            <label className="flex items-center gap-2 cursor-pointer bg-purple-100 px-4 py-2 rounded-xl hover:bg-purple-200 transition-all duration-300">
+            <label className="flex items-center gap-2 cursor-pointer bg-slate-100 px-4 py-2 rounded-md hover:bg-slate-200 transition-colors">
               <input
                 type="radio"
                 value="USER"
                 {...register("role", {
                   required: "Please select a role",
                 })}
-                className="accent-purple-600 w-4 h-4"
+                className="accent-slate-700 w-4 h-4"
               />
-              <span className="text-sm text-purple-700">
+              <span className="text-sm text-slate-700">
                 User
               </span>
             </label>
 
-            <label className="flex items-center gap-2 cursor-pointer bg-purple-100 px-4 py-2 rounded-xl hover:bg-purple-200 transition-all duration-300">
+            <label className="flex items-center gap-2 cursor-pointer bg-slate-100 px-4 py-2 rounded-md hover:bg-slate-200 transition-colors">
               <input
                 type="radio"
                 value="AUTHOR"
                 {...register("role", {
                   required: "Please select a role",
                 })}
-                className="accent-purple-600 w-4 h-4"
+                className="accent-slate-700 w-4 h-4"
               />
-              <span className="text-sm text-purple-700">
+              <span className="text-sm text-slate-700">
                 Author
               </span>
             </label>
@@ -123,19 +123,19 @@ function Register() {
           )}
         </div>
 
-        <div className={`${divider} border-purple-100`} />
+        <div className={divider} />
 
         {/* NAME */}
         <div className="sm:flex gap-4 mb-4">
 
           <div className="flex-1">
-            <label className={`${labelClass} text-purple-700`}>
+            <label className={labelClass}>
               First Name
             </label>
 
             <input
               type="text"
-              className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+              className={inputClass}
               placeholder="First name"
               {...register("firstName", {
                 required: "First name is required",
@@ -159,13 +159,13 @@ function Register() {
           </div>
 
           <div className="flex-1">
-            <label className={`${labelClass} text-purple-700`}>
+            <label className={labelClass}>
               Last Name
             </label>
 
             <input
               type="text"
-              className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+              className={inputClass}
               placeholder="Last name"
               {...register("lastName", {
                 maxLength: {
@@ -186,13 +186,13 @@ function Register() {
 
         {/* EMAIL */}
         <div className={formGroup}>
-          <label className={`${labelClass} text-purple-700`}>
+          <label className={labelClass}>
             Email
           </label>
 
           <input
             type="email"
-            className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+            className={inputClass}
             placeholder="you@example.com"
             {...register("email", {
               required: "Email is required",
@@ -206,13 +206,13 @@ function Register() {
 
         {/* PASSWORD */}
         <div className={formGroup}>
-          <label className={`${labelClass} text-purple-700`}>
+          <label className={labelClass}>
             Password
           </label>
 
           <input
             type="password"
-            className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+            className={inputClass}
             placeholder="Min. 8 characters"
             {...register("password", {
               required: "Password is required",
@@ -228,13 +228,13 @@ function Register() {
 
         {/* PROFILE IMAGE */}
         <div className={formGroup}>
-          <label className={`${labelClass} text-purple-700`}>
+          <label className={labelClass}>
             Profile Image
           </label>
 
           <input
             type="file"
-            className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+            className={inputClass}
             accept="image/png, image/jpeg, image/jpg"
             {...register("profileImageUrl", {
               validate: {
@@ -268,7 +268,7 @@ function Register() {
               <img
                 src={preview}
                 alt=""
-                className="w-24 h-24 rounded-full object-cover shadow-md"
+                className="w-24 h-24 rounded-full object-cover border border-slate-200"
               />
             </div>
           )}
@@ -277,7 +277,7 @@ function Register() {
         {/* SUBMIT */}
         <button
           type="submit"
-          className={`${submitBtn} bg-purple-500 hover:bg-purple-600 transition-all duration-300 rounded-2xl`}
+          className={submitBtn}
         >
           Create Account
         </button>
@@ -289,7 +289,7 @@ function Register() {
         Already have an account?{" "}
         <NavLink
           to="/login"
-          className="text-purple-600 font-medium hover:text-purple-800"
+          className="text-slate-700 font-medium hover:text-slate-950"
         >
           Sign in
         </NavLink>

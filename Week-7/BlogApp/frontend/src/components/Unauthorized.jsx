@@ -21,11 +21,11 @@ const Unauthorized = ({ delay = 5000 }) => {
   }, [navigate, redirectTo, delay]);
 
   return (
-  <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-white via-purple-50 to-purple-100">
+  <div className="min-h-screen flex flex-col justify-center items-center bg-[#f7f8fa]">
 
-    <div className="bg-white shadow-xl rounded-3xl px-12 py-10 text-center border border-purple-100">
+    <div className="bg-white shadow-sm rounded-lg px-12 py-10 text-center border border-slate-200">
 
-      <h1 className="text-5xl font-bold text-purple-700 mb-5">
+      <h1 className="text-4xl font-semibold text-slate-900 mb-5">
         403 - Unauthorized
       </h1>
 
@@ -33,7 +33,7 @@ const Unauthorized = ({ delay = 5000 }) => {
         You don’t have permission to access this page.
       </p>
 
-      <p className="text-sm text-purple-400">
+      <p className="text-sm text-slate-500">
         Redirecting...
       </p>
 

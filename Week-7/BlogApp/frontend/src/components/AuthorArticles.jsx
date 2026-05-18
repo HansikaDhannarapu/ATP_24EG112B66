@@ -55,13 +55,6 @@ function AuthorArticles() {
     });
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleString("en-IN", {
-      timeZone: "Asia/Kolkata",
-      dateStyle: "medium",
-    });
-  };
-
   if (loading) return <p className={loadingClass}>Loading articles...</p>;
   if (error) return <p className={errorClass}>{error}</p>;
 
@@ -76,15 +69,15 @@ function AuthorArticles() {
 
       <div
         key={article._id}
-        className={`${articleCardClass} relative flex flex-col bg-white rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-purple-100 p-6`}
+        className={`${articleCardClass} relative flex flex-col`}
       >
 
         {/* Status Badge */}
         <span
           className={
             article.isArticleActive
-              ? "absolute top-4 right-4 bg-green-100 text-green-700 text-[10px] font-bold px-3 py-1 rounded-full tracking-wider"
-              : "absolute top-4 right-4 bg-red-100 text-red-600 text-[10px] font-bold px-3 py-1 rounded-full tracking-wider"
+              ? articleStatusActive
+              : articleStatusDeleted
           }
         >
           {article.isArticleActive ? "ACTIVE" : "DELETED"}
@@ -92,22 +85,22 @@ function AuthorArticles() {
 
         <div className="flex flex-col gap-3">
 
-          <p className={`${articleMeta} text-purple-500 uppercase tracking-wide`}>
+          <p className={`${articleMeta} uppercase tracking-wide`}>
             {article.category}
           </p>
 
-          <p className={`${articleTitle} text-purple-700`}>
+          <p className={articleTitle}>
             {article.title}
           </p>
 
-          <p className={`${articleExcerpt} text-gray-500 leading-relaxed`}>
+          <p className={articleExcerpt}>
             {article.content.slice(0, 60)}...
           </p>
 
         </div>
 
         <button
-          className={`${ghostBtn} mt-auto pt-6 text-purple-600 hover:text-purple-800 transition-all duration-300 font-medium`}
+          className={`${ghostBtn} mt-auto pt-6 text-left`}
           onClick={() => openArticle(article)}
         >
           Read Article →

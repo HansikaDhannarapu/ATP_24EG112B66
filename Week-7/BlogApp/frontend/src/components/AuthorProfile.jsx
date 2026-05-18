@@ -20,7 +20,7 @@ function AuthorProfile() {
   <div className={pageWrapper}>
 
     {/* PROFILE HEADER */}
-    <div className="bg-white shadow-lg rounded-3xl p-6 mb-8 flex items-center justify-between border border-purple-100">
+    <div className="bg-white shadow-sm rounded-lg p-6 mb-8 flex items-center justify-between border border-slate-200">
 
       {/* LEFT */}
       <div className="flex items-center gap-4">
@@ -29,22 +29,22 @@ function AuthorProfile() {
         {currentUser?.profileImageUrl ? (
           <img
             src={currentUser.profileImageUrl}
-            className="w-16 h-16 rounded-full object-cover border-2 border-purple-200 shadow-sm"
+            className="w-16 h-16 rounded-full object-cover border border-slate-200"
             alt="profile"
           />
         ) : (
-          <div className="w-16 h-16 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xl font-semibold">
+          <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-xl font-semibold">
             {currentUser?.firstName?.charAt(0).toUpperCase()}
           </div>
         )}
 
         {/* Name */}
         <div>
-          <p className="text-sm text-purple-400">
+          <p className="text-sm text-slate-500">
             Welcome back
           </p>
 
-          <h2 className="text-xl font-semibold text-purple-700">
+          <h2 className="text-xl font-semibold text-slate-900">
             {currentUser?.firstName}
           </h2>
         </div>
@@ -53,7 +53,7 @@ function AuthorProfile() {
 
       {/* LOGOUT */}
       <button
-        className="bg-purple-500 text-white text-sm px-5 py-2 rounded-full hover:bg-purple-600 transition-all duration-300 shadow-md"
+        className="bg-slate-900 text-white text-sm px-5 py-2 rounded-md hover:bg-slate-700 transition-colors"
         onClick={onLogout}
       >
         Logout
@@ -62,14 +62,14 @@ function AuthorProfile() {
     </div>
 
     {/* NAVIGATION (TABS STYLE) */}
-    <div className="flex gap-3 mb-6 bg-purple-100 p-2 rounded-full w-fit shadow-sm">
+    <div className="flex gap-2 mb-6 bg-white p-1.5 rounded-lg w-fit border border-slate-200">
 
       <NavLink
         to="articles"
         className={({ isActive }) =>
           isActive
-            ? "bg-white px-5 py-2 rounded-full text-purple-700 text-sm font-medium shadow-md transition-all duration-300"
-            : `${navLinkClass} px-5 py-2 text-purple-500 hover:text-purple-700 transition-all duration-300`
+            ? "bg-slate-100 px-5 py-2 rounded-md text-slate-950 text-sm font-medium transition-colors"
+            : `${navLinkClass} px-5 py-2 rounded-md text-slate-600 hover:text-slate-950 transition-colors`
         }
       >
         Articles
@@ -79,8 +79,8 @@ function AuthorProfile() {
         to="write-article"
         className={({ isActive }) =>
           isActive
-            ? "bg-white px-5 py-2 rounded-full text-purple-700 text-sm font-medium shadow-md transition-all duration-300"
-            : `${navLinkClass} px-5 py-2 text-purple-500 hover:text-purple-700 transition-all duration-300`
+            ? "bg-slate-100 px-5 py-2 rounded-md text-slate-950 text-sm font-medium transition-colors"
+            : `${navLinkClass} px-5 py-2 rounded-md text-slate-600 hover:text-slate-950 transition-colors`
         }
       >
         Write Article
@@ -88,7 +88,7 @@ function AuthorProfile() {
 
     </div>
 
-    <div className={`${divider} border-purple-100`}></div>
+    <div className={divider}></div>
 
     {/* CONTENT */}
     <div className="mt-6">

@@ -25,7 +25,6 @@ function WriteArticles() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
   //save article
@@ -53,9 +52,9 @@ function WriteArticles() {
   };
 
   return (
-  <div className={`${formCard} bg-white shadow-xl rounded-3xl p-8 border border-purple-100`}>
+  <div className={formCard}>
 
-    <h2 className={`${formTitle} text-purple-700 text-center mb-8`}>
+    <h2 className={`${formTitle} mb-8`}>
       Write New Article
     </h2>
 
@@ -64,13 +63,13 @@ function WriteArticles() {
       {/* Title */}
       <div className={formGroup}>
 
-        <label className={`${labelClass} text-purple-700`}>
+        <label className={labelClass}>
           Title
         </label>
 
         <input
           type="text"
-          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          className={inputClass}
           placeholder="Enter article title"
           {...register("title", {
             required: "Title is required",
@@ -90,12 +89,12 @@ function WriteArticles() {
       {/* Category */}
       <div className={formGroup}>
 
-        <label className={`${labelClass} text-purple-700`}>
+        <label className={labelClass}>
           Category
         </label>
 
         <select
-          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          className={inputClass}
           {...register("category", {
             required: "Category is required",
           })}
@@ -116,13 +115,13 @@ function WriteArticles() {
       {/* Content */}
       <div className={formGroup}>
 
-        <label className={`${labelClass} text-purple-700`}>
+        <label className={labelClass}>
           Content
         </label>
 
         <textarea
           rows="8"
-          className={`${inputClass} bg-purple-50 border border-purple-100 rounded-2xl focus:ring-2 focus:ring-purple-300 outline-none`}
+          className={inputClass}
           placeholder="Write your article content..."
           {...register("content", {
             required: "Content is required",
@@ -141,7 +140,7 @@ function WriteArticles() {
 
       {/* Submit */}
       <button
-        className={`${submitBtn} bg-purple-500 hover:bg-purple-600 text-white rounded-2xl transition-all duration-300 shadow-md`}
+        className={submitBtn}
         type="submit"
         disabled={loading}
       >
@@ -149,7 +148,7 @@ function WriteArticles() {
       </button>
 
       {loading && (
-        <p className={`${loadingClass} text-purple-500 mt-4`}>
+        <p className={`${loadingClass} mt-4`}>
           Publishing article...
         </p>
       )}
