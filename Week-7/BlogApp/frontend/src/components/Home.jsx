@@ -9,9 +9,7 @@ function Home() {
       
       <div className="bg-white max-w-2xl w-full px-10 py-12 rounded-lg border border-slate-200 shadow-sm text-center">
         
-        <h1 className="text-4xl font-semibold text-slate-900 mb-5">
-          Welcome to MyBlog
-        </h1>
+        <h1 className="text-4xl font-semibold text-slate-900 mb-5">Explore Articles That Inspire Innovation</h1>
 
         <p className="text-slate-600 leading-relaxed text-base">
           A modern blogging platform where users can read articles, share thoughts,
