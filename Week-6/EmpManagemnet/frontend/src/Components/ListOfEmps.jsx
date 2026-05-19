@@ -50,75 +50,87 @@ function ListOfEmps() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
+  <div className="flex flex-col items-center">
 
-      {/* Counter Section */}
-      <div className="text-center bg-purple-200 px-10 py-8 rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mb-10">
-        
-        <h1 className="text-4xl font-bold text-purple-700 mb-5">
-          Counter2: {counter2}
-        </h1>
+    {/* Counter Section */}
+    <div className="w-full max-w-sm bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 mb-10 text-center">
 
-        <button
-          onClick={changeCounter2}
-          className="bg-purple-400 hover:bg-purple-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300"
-        >
-          Change Counter2
-        </button>
-      </div>
+      <h2 className="text-sm font-medium text-slate-500 mb-2">
+        Counter 2
+      </h2>
 
-      {/* Heading */}
-      <h1 className="text-5xl text-center text-blue-300 font-bold mb-10">
+      <h1 className="text-5xl font-bold text-slate-800 mb-8">
+        {counter2}
+      </h1>
+
+      <button
+        onClick={changeCounter2}
+        className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 rounded-2xl font-medium transition-all duration-300"
+      >
+        Change Counter2
+      </button>
+    </div>
+
+    {/* Heading */}
+    <div className="text-center mb-10">
+      <h1 className="text-4xl md:text-5xl font-bold text-slate-800">
         List of Employees
       </h1>
 
-      {/* Employee Cards */}
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full">
+      <p className="text-slate-500 mt-3">
+        Manage employee details and actions
+      </p>
+    </div>
 
-        {emps.map((empObj) => (
-          <div
-            key={empObj._id}
-            className="bg-white/70 backdrop-blur-md p-6 text-center rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
-          >
+    {/* Employee Cards */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
 
-            <p className="text-lg text-gray-600 mb-2 break-words">
+      {emps.map((empObj) => (
+        <div
+          key={empObj._id}
+          className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300"
+        >
+
+          <div className="mb-6">
+            <p className="text-sm text-slate-500 break-words mb-2">
               {empObj.email}
             </p>
 
-            <p className="text-2xl font-bold text-purple-700 mb-6">
+            <h2 className="text-2xl font-bold text-slate-800">
               {empObj.name}
-            </p>
-
-            {/* Buttons */}
-            <div className="flex justify-center gap-3 flex-wrap">
-
-              <button
-                onClick={() => gotoEmployee(empObj)}
-                className="bg-blue-400 hover:bg-blue-500 px-4 py-2 rounded-2xl text-white font-semibold transition-all duration-300"
-              >
-                View
-              </button>
-
-              <button
-                onClick={() => gotoEditEmployee(empObj)}
-                className="bg-yellow-400 hover:bg-yellow-500 px-4 py-2 rounded-2xl text-white font-semibold transition-all duration-300"
-              >
-                Edit
-              </button>
-
-              <button
-                onClick={() => deleteEmpById(empObj._id)}
-                className="bg-pink-400 hover:bg-pink-500 px-4 py-2 rounded-2xl text-white font-semibold transition-all duration-300"
-              >
-                Delete
-              </button>
-
-            </div>
+            </h2>
           </div>
-        ))}
-      </div>
+
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-3">
+
+            <button
+              onClick={() => gotoEmployee(empObj)}
+              className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 rounded-2xl font-medium transition-all duration-300"
+            >
+              View
+            </button>
+
+            <button
+              onClick={() => gotoEditEmployee(empObj)}
+              className="flex-1 bg-slate-800 hover:bg-slate-900 text-white py-2.5 rounded-2xl font-medium transition-all duration-300"
+            >
+              Edit
+            </button>
+
+            <button
+              onClick={() => deleteEmpById(empObj._id)}
+              className="w-full bg-red-50 hover:bg-red-100 text-red-600 py-2.5 rounded-2xl font-medium transition-all duration-300"
+            >
+              Delete
+            </button>
+
+          </div>
+        </div>
+      ))}
     </div>
-  );
+  </div>
+);
 }
 
 export default ListOfEmps;

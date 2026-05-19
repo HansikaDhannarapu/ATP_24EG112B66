@@ -2,17 +2,19 @@ import Header from './Header'
 import { Outlet } from 'react-router'
 
 function RootLayout() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100">
-      
-      <Header />
+ return (
+  <div className="min-h-screen bg-slate-100">
+    
+    <Header />
 
-      <div className="min-h-screen mx-10 md:mx-20 p-8 md:p-16">
+    <div className="max-w-7xl mx-auto px-6 md:px-12 py-10">
+      <div className="bg-white border border-slate-200 rounded-3xl shadow-sm p-6 md:p-10 min-h-[80vh]">
         <Outlet />
       </div>
-
     </div>
-  )
+
+  </div>
+)
 }
 
 export default RootLayout

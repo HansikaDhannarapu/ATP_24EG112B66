@@ -70,77 +70,93 @@ function CreateEmp() {
   }
 
   return (
-    <div className="flex flex-col items-center">
+  <div className="flex flex-col items-center">
 
-      {/* Counter Section */}
-      <div className="text-center bg-pink-200 px-10 py-8 rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mb-10">
-        
-        <h1 className="text-4xl font-bold text-pink-700 mb-5">
-          Counter1: {counter1}
-        </h1>
+    {/* Counter Section */}
+    <div className="w-full max-w-sm bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 mb-10 text-center">
 
-        <button
-          onClick={changeCounter1}
-          className="bg-pink-400 hover:bg-pink-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300"
-        >
-          Change Counter1
-        </button>
-      </div>
+      <h2 className="text-sm font-medium text-slate-500 mb-2">
+        Counter 1
+      </h2>
 
-      {/* Heading */}
-      <h1 className="text-5xl text-center text-purple-700 font-bold mb-10">
+      <h1 className="text-5xl font-bold text-slate-800 mb-8">
+        {counter1}
+      </h1>
+
+      <button
+        onClick={changeCounter1}
+        className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 rounded-2xl font-medium transition-all duration-300"
+      >
+        Change Counter1
+      </button>
+    </div>
+
+    {/* Heading */}
+    <div className="text-center mb-10">
+      <h1 className="text-4xl md:text-5xl font-bold text-slate-800">
         Create New Employee
       </h1>
 
-      {/* Form */}
-      <form
-        className="w-full max-w-xl bg-white/60 backdrop-blur-md p-10 rounded-3xl shadow-2xl"
-        onSubmit={handleSubmit(onFormSubmit)}
-      >
+      <p className="text-slate-500 mt-3">
+        Fill in the employee details below
+      </p>
+    </div>
+
+    {/* Form */}
+    <form
+      className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl shadow-sm p-8 md:p-10"
+      onSubmit={handleSubmit(onFormSubmit)}
+    >
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
         <input
           type="text"
           placeholder="Enter name"
           {...register("name")}
-          className="mb-5 p-4 w-full rounded-2xl bg-pink-100 outline-none focus:ring-4 focus:ring-pink-300 text-lg"
+          className="p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
         />
 
         <input
           type="email"
           placeholder="Enter Email"
           {...register("email")}
-          className="mb-5 p-4 w-full rounded-2xl bg-purple-100 outline-none focus:ring-4 focus:ring-purple-300 text-lg"
+          className="p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
         />
 
         <input
           type="number"
           placeholder="Enter mobile number"
           {...register("mobile")}
-          className="mb-5 p-4 w-full rounded-2xl bg-blue-100 outline-none focus:ring-4 focus:ring-blue-300 text-lg"
+          className="p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
         />
 
         <input
           type="text"
           placeholder="Enter designation"
           {...register("designation")}
-          className="mb-5 p-4 w-full rounded-2xl bg-pink-100 outline-none focus:ring-4 focus:ring-pink-300 text-lg"
+          className="p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
         />
 
-        <input
-          type="text"
-          placeholder="Enter name of the company"
-          {...register("companyName")}
-          className="mb-8 p-4 w-full rounded-2xl bg-purple-100 outline-none focus:ring-4 focus:ring-purple-300 text-lg"
-        />
+      </div>
 
-        <button
-          type="submit"
-          className="text-2xl rounded-2xl bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 hover:scale-105 hover:shadow-xl transition-all duration-300 text-white block mx-auto px-10 py-4 font-semibold"
-        >
-          Add Emp
-        </button>
-      </form>
-    </div>
-  );
+      <input
+        type="text"
+        placeholder="Enter company name"
+        {...register("companyName")}
+        className="mt-5 p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
+      />
+
+      <button
+        type="submit"
+        className="mt-8 w-full bg-slate-800 hover:bg-slate-900 text-white py-4 rounded-2xl font-semibold text-lg transition-all duration-300"
+      >
+        Add Employee
+      </button>
+
+    </form>
+  </div>
+);
 }
 
 export default CreateEmp;

@@ -33,49 +33,74 @@ function EditEmployee() {
   }
 
   return (
-      <div>
-      <h1 className="text-5xl text-center text-yellow-600">Edit Employee</h1>
-      {/* form */}
-      <form className=" max-w-md mx-auto mt-10" onSubmit={handleSubmit(saveModifiedEmp)}>
+  <div className="flex flex-col items-center">
+
+    {/* Heading */}
+    <div className="text-center mb-10">
+      <h1 className="text-4xl md:text-5xl font-bold text-slate-800">
+        Edit Employee
+      </h1>
+
+      <p className="text-slate-500 mt-3">
+        Update employee information below
+      </p>
+    </div>
+
+    {/* Form */}
+    <form
+      className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl shadow-sm p-8 md:p-10"
+      onSubmit={handleSubmit(saveModifiedEmp)}
+    >
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
         <input
           type="text"
-          placeholder="Enter name "
+          placeholder="Enter name"
           {...register("name")}
-          className="mb-3  border-2 p-3 w-full rounded-2xl"
+          className="p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
         />
+
         <input
           type="email"
-          placeholder="Enter Email "
+          placeholder="Enter Email"
           {...register("email")}
-          className="mb-3 border-2 p-3 w-full rounded-2xl"
+          className="p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
         />
 
         <input
           type="number"
           placeholder="Enter mobile number"
           {...register("mobile")}
-          className="mb-3  border-2 p-3 w-full rounded-2xl"
+          className="p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
         />
+
         <input
           type="text"
           placeholder="Enter designation"
           {...register("designation")}
-          className="mb-3 border-2 p-3 w-full rounded-2xl"
-        />
-        <input
-          type="text"
-          placeholder="Enter name of the company"
-          {...register("companyName")}
-          className="mb-3  border-2 p-3 w-full rounded-2xl"
+          className="p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
         />
 
-        <button type="submit" className="text-2xl rounded-2xl bg-green-600 text-white block mx-auto p-4">
-          Save
-        </button>
-      </form>
-    </div>
+      </div>
 
-  )
+      <input
+        type="text"
+        placeholder="Enter company name"
+        {...register("companyName")}
+        className="mt-5 p-4 w-full rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-slate-300"
+      />
+
+      <button
+        type="submit"
+        className="mt-8 w-full bg-slate-800 hover:bg-slate-900 text-white py-4 rounded-2xl font-semibold text-lg transition-all duration-300"
+      >
+        Save Changes
+      </button>
+
+    </form>
+  </div>
+)
 }
 
 export default EditEmployee

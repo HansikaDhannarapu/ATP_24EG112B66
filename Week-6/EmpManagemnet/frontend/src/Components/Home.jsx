@@ -11,53 +11,67 @@ function Home() {
     changeCounter3,
   } = useContext(counterContextObj);
 
- return (
-  <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 p-10">
+return (
+  <div className="min-h-screen bg-slate-100 flex items-center justify-center px-6 py-10">
+    
+    <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    {/* Counter 1 */}
-    <div className="text-center bg-pink-200 px-12 py-8 rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
-      <h1 className="text-4xl font-bold text-pink-700 mb-5">
-        Counter1: {counter1}
-      </h1>
+      {/* Counter 1 */}
+      <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+        <h2 className="text-sm font-medium text-slate-500 mb-2">
+          Counter 1
+        </h2>
 
-      <button
-        onClick={changeCounter1}
-        className="bg-pink-400 hover:bg-pink-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300"
-      >
-        Change Counter1
-      </button>
+        <h1 className="text-5xl font-bold text-slate-800 mb-8">
+          {counter1}
+        </h1>
+
+        <button
+          onClick={changeCounter1}
+          className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 rounded-2xl font-medium transition-all duration-300"
+        >
+          Change Counter1
+        </button>
+      </div>
+
+      {/* Counter 2 */}
+      <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+        <h2 className="text-sm font-medium text-slate-500 mb-2">
+          Counter 2
+        </h2>
+
+        <h1 className="text-5xl font-bold text-slate-800 mb-8">
+          {counter2}
+        </h1>
+
+        <button
+          onClick={changeCounter2}
+          className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 rounded-2xl font-medium transition-all duration-300"
+        >
+          Change Counter2
+        </button>
+      </div>
+
+      {/* Counter 3 */}
+      <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+        <h2 className="text-sm font-medium text-slate-500 mb-2">
+          Counter 3
+        </h2>
+
+        <h1 className="text-5xl font-bold text-slate-800 mb-8">
+          {counter3}
+        </h1>
+
+        <button
+          onClick={changeCounter3}
+          className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 rounded-2xl font-medium transition-all duration-300"
+        >
+          Change Counter3
+        </button>
+      </div>
+
     </div>
-
-    {/* Counter 2 */}
-    <div className="text-center bg-purple-200 px-12 py-8 rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
-      <h1 className="text-4xl font-bold text-purple-700 mb-5">
-        Counter2: {counter2}
-      </h1>
-
-      <button
-        onClick={changeCounter2}
-        className="bg-purple-400 hover:bg-purple-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300"
-      >
-        Change Counter2
-      </button>
-    </div>
-
-    {/* Counter 3 */}
-    <div className="text-center bg-blue-200 px-12 py-8 rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
-      <h1 className="text-4xl font-bold text-blue-700 mb-5">
-        Counter3: {counter3}
-      </h1>
-
-      <button
-        onClick={changeCounter3}
-        className="bg-blue-400 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300"
-      >
-        Change Counter3
-      </button>
-    </div>
-
   </div>
 );
 }
-
 export default Home;
